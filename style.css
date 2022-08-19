@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,500&display=swap');
+
+body {
+    margin: 0;
+    background: #D9CDCB;
+    font-family: 'Roboto', sans-serif;
+}
+
+.chat {
+    width: 250px;
+    margin: 0 auto;
+    padding-top: 80px;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 12px;
+    margin-bottom: 5px;
+    background: #DF9B8F;
+    color: #FFFFFF;
+    position: relative;
+}
+
+.message i {
+    position: absolute;
+    right: 5px;
+}
+
+.cross {
+    top: 0;
+    font-size: 10px;
+}
+
+.cross:hover, .correction:hover {
+    color: black;
+}
+
+.correction {
+    bottom: 5px;
+    font-size: 7px;
+}
+
+.controls {
+    display: flex;
+}
+
+.send-button {
+    background: #595554;
+    color: #FFFFFF;
+    border-radius: 0 16px 16px 0;
+    border: 0px solid transparent;
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+.send-button:hover {
+    background: #3a3837; 
+}
+
+.send-input {
+    flex: 1;
+    outline: #DF9B8F;
+}
