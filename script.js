@@ -13,16 +13,21 @@ function addMessage() {
     let messageItem = document.createElement("div");
     messageItem.classList.add("message");
     messageItem.textContent = input.value;
-    let cross = document.createElement("i");
-    addClass(cross, "cross");
-    addClass(cross, "fa-solid");
-    addClass(cross, "fa-xmark");
-    cross.title = "Удалить сообщение";
-    let correction = document.createElement("i");
-    addClass(correction, "correction");
-    addClass(correction, "fa-solid");
-    addClass(correction, "fa-pencil");
-    correction.title = "Редактировать сообщение";
+   
+   
+    const cross = make({
+        tagName: "i",
+        classes: ["cross", "fa-solid", "fa-xmark"],
+        attributes: { title: "Удалить" },
+      });
+
+      const correction = make({
+        tagName: "i",
+        classes: [ 'correction', 'fa-solid', 'fa-pencil'],
+        attributes: { title: "Редактировать" },
+      });
+
+   
     function addOpportunity() {
         messageItem.append(cross);
         messageItem.append(correction);
@@ -40,15 +45,27 @@ function addMessage() {
     })
 
     correction.addEventListener("click", function () {
-        let newMessage = prompt("Введите новое сообщение");
-        if ((newMessage != "") && (newMessage != null)) {
+        const newMessage = prompt("Введите новое сообщение");
+        if (newMessage != "" && newMessage != null) {
             messageItem.textContent = newMessage;
             addOpportunity();
         }
     })
 }
 
-function addClass(element, className) {
-    return element.classList.add(className);
-}
+
+const make = ({tagName, classes = [], attributes = {}}) => {
+    const el = document.createElement(tagName);
+    
+    if (Array.isArray(classes)) {
+        el.classList.add(...classes);
+    } else {
+        el.classList.add(classes)
+    }
+
+    for (let attr in attributes) {
+        el.setAttribute(attr, attributes[attr]);
+    }
+    return el;
+};
 
